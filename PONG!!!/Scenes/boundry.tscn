@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bj4xaqdmqr5q0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka305"]
+size = Vector2(1001.5, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnjxn"]
+size = Vector2(24.625, 564.5)
+
+[node name="boundry" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 0
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="Staticbody1" type="StaticBody2D" parent="."]
+position = Vector2(500.25, 525)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Staticbody1"]
+position = Vector2(-3.25, -553)
+shape = SubResource("RectangleShape2D_ka305")
+
+[node name="Staticbody2" type="StaticBody2D" parent="."]
+position = Vector2(497, -28)
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Staticbody2"]
+position = Vector2(3.25, 553)
+shape = SubResource("RectangleShape2D_ka305")
+
+[node name="divider" type="CollisionShape2D" parent="."]
+position = Vector2(494, 256)
+shape = SubResource("RectangleShape2D_pnjxn")

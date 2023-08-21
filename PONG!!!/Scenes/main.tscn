@@ -1,0 +1,28 @@
+[gd_scene load_steps=8 format=3 uid="uid://psis61snpeix"]
+
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_emorv"]
+[ext_resource type="PackedScene" uid="uid://u0ehnf2pt00h" path="res://Scenes/player.tscn" id="1_gq5ay"]
+[ext_resource type="PackedScene" uid="uid://bj4xaqdmqr5q0" path="res://Scenes/boundry.tscn" id="2_0024n"]
+[ext_resource type="PackedScene" uid="uid://cyvyn3us7oa0g" path="res://Scenes/enemy.tscn" id="2_qeyu3"]
+[ext_resource type="PackedScene" uid="uid://db6a5ac2lc8or" path="res://Scenes/ball.tscn" id="2_v7tyi"]
+[ext_resource type="PackedScene" uid="uid://cj4olh41ixv1e" path="res://Scenes/boundryignoreBALL.tscn" id="4_5fg3s"]
+[ext_resource type="PackedScene" uid="uid://dgbk1cy6uqu07" path="res://Scenes/canvas_layer.tscn" id="6_7es7s"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_emorv")
+
+[node name="player" parent="." instance=ExtResource("1_gq5ay")]
+
+[node name="enemy" parent="." instance=ExtResource("2_qeyu3")]
+
+[node name="boundry2" parent="." instance=ExtResource("4_5fg3s")]
+
+[node name="Ball" parent="." instance=ExtResource("2_v7tyi")]
+
+[node name="boundry" parent="." instance=ExtResource("2_0024n")]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("6_7es7s")]
+
+[connection signal="over" from="Ball" to="CanvasLayer" method="_on_ball_over"]
+[connection signal="gdone" from="CanvasLayer" to="." method="_on_canvas_layer_gdone"]
+[connection signal="startpressed" from="CanvasLayer" to="." method="_on_canvas_layer_startpressed"]

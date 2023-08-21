@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://cj4olh41ixv1e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnjxn"]
+size = Vector2(24.625, 564.5)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mqeov"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_cls1w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka305"]
+size = Vector2(1001.5, 56)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_60grf"]
+
+[node name="boundry2" type="RigidBody2D"]
+freeze = true
+metadata/_edit_group_ = true
+
+[node name="divider" type="CollisionShape2D" parent="."]
+position = Vector2(494, 256)
+shape = SubResource("RectangleShape2D_pnjxn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(484, 269)
+physics_material_override = SubResource("PhysicsMaterial_mqeov")
+metadata/_edit_group_ = true
+
+[node name="divider" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12.6875, 8)
+shape = SubResource("RectangleShape2D_pnjxn")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = -270.0
+offset_right = 25.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.380392, 0, 0.121569, 1)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-30, 225)
+rotation = 1.5708
+physics_material_override = SubResource("PhysicsMaterial_cls1w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-8.00005, -1058)
+shape = SubResource("RectangleShape2D_ka305")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-30, 225)
+rotation = 1.5708
+physics_material_override = SubResource("PhysicsMaterial_60grf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_ka305")

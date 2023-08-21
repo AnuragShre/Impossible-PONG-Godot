@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgbk1cy6uqu07"]
+
+[ext_resource type="Script" path="res://Scenes/canvas_layer.gd" id="1_61q6c"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_wbu4m"]
+action = &"button"
+
+[sub_resource type="Shortcut" id="Shortcut_xqvx1"]
+events = [SubResource("InputEventAction_wbu4m")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_6coo2"]
+action = &"button"
+
+[sub_resource type="Shortcut" id="Shortcut_p83de"]
+events = [SubResource("InputEventAction_6coo2")]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_61q6c")
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -44.0
+offset_right = -21.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+shortcut = SubResource("Shortcut_xqvx1")
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 457.0
+offset_top = 337.0
+offset_right = 557.0
+offset_bottom = 368.0
+shortcut = SubResource("Shortcut_p83de")
+text = "GAME OVER"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
